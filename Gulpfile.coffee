@@ -15,3 +15,5 @@ gulp.task 'coffee', ->
 gulp.task 'watch', ->
   gulp.watch './assets/**/*.scss', ['sass']
   gulp.watch './assets/**/*.coffee', ['coffee']
+
+gulp.task 'default', ['watch', 'sass', 'coffee']
