@@ -6,10 +6,11 @@ mongoose   = require 'mongoose'
 app        = express()
 
 routes = require './routes/index'
+demo = require('./routes/api')('Demo')
 
 app.set 'view engine', 'jade'
 
-mongoose.connect('mongodb://localhost/fullStack', (err) ->
+mongoose.connect 'mongodb://localhost/fullStack', (err) ->
   if err
     console.log 'connection error', err
   else
@@ -19,6 +20,7 @@ app.use bodyParser.json()
 app.use express.static(path.join(__dirname, 'public'))
 
 app.use '/', routes
+app.use '/api/demos', demo
 
 app.use (req, res, next) ->
   err = new Error 'Not Found'
