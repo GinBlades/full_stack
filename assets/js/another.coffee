@@ -1,3 +1,3 @@
 define
   test: ->
-    console.log "This is another file"
+    console.log "This is a file"
