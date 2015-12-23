@@ -1,3 +1,1 @@
-define
-  test: ->
-    console.log "This is a file"
+console.log("two scripts")
