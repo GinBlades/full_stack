@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "coffee": "coffee -o public -cw assets",
-    "sass": "node-sass -wr assets -o public",
+    "sass": "node-sass -w assets -o public",
     "watch": "npm run coffee & npm run sass",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

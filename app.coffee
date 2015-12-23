@@ -19,6 +19,7 @@ mongoose.connect 'mongodb://localhost/fullStack', (err) ->
 app.use bodyParser.json()
 app.use express.static(path.join(__dirname, 'bower_components'))
 app.use express.static(path.join(__dirname, 'public'))
+app.use express.static(path.join(__dirname, 'bower_components/bootstrap-sass/assets'))
 
 app.use '/', routes
 app.use '/api/demos', demo

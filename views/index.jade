@@ -1,9 +1,9 @@
 html
   head
     title!= title
-    link(href='bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
   body
     h1!= message
-    script(src='jquery/dist/jquery.min.js')
-    script(src='bootstrap/dist/js/bootstrap.min.js')
-    script(data-main='main', src='requirejs/require.js')
+    script(src='/jquery/dist/jquery.min.js')
+    script(src='/bootstrap-sass/assets/javascripts/bootstrap.min.js')
+    script(data-main='js/main', src='/requirejs/require.js')
