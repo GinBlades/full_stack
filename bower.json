@@ -1,0 +1,21 @@
+{
+  "name": "full_stack",
+  "description": "",
+  "main": "app.coffee",
+  "authors": [
+    "Shaun Martin <martins@surgery.wisc.edu>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
