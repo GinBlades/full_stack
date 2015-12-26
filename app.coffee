@@ -10,7 +10,7 @@ demo = require('./routes/api')('Demo')
 
 app.set 'view engine', 'jade'
 
-mongoose.connect 'mongodb://localhost/fullStack', (err) ->
+mongoose.connect 'mongodb://shaun:cfvR0ChuX5zw2bccqVAO@ds035965.mongolab.com:35965/stmdb', (err) ->
   if err
     console.log 'connection error', err
   else

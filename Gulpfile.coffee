@@ -1,17 +1,16 @@
-plumber = require 'gulp-plumber'
-gulp = require 'gulp'
-coffee = require 'gulp-coffee'
-sass = require 'gulp-sass'
+gulp       = require 'gulp'
+plumber    = require 'gulp-plumber'
+coffee     = require 'gulp-coffee'
+sass       = require 'gulp-sass'
 sourcemaps = require 'gulp-sourcemaps'
-uglify = require 'gulp-uglify'
-concat = require 'gulp-concat'
-jade = require 'gulp-jade'
-handlebars = require 'gulp-handlebars'
+uglify     = require 'gulp-uglify'
+concat     = require 'gulp-concat'
+jade       = require 'gulp-jade'
 
 vendorJs = [
-  'bower_components/jquery/dist/jquery.js',
-  'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-  'bower_components/handlebars/lib/handlebars.js'
+  'bower_components/jquery/dist/jquery.min.js',
+  'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+  'bower_components/handlebars/handlebars.min.js'
 ]
 
 gulp.task 'sass', ->
@@ -34,8 +33,8 @@ gulp.task 'coffee', ->
 gulp.task 'vendor', ->
   gulp.src vendorJs
     .pipe plumber()
-    .pipe sourcemaps.init()
-    .pipe uglify()
+    .pipe sourcemaps.init
+      loadMaps: true
     .pipe concat 'js/vendor.js'
     .pipe sourcemaps.write('.')
     .pipe gulp.dest './public'
@@ -44,10 +43,8 @@ gulp.task 'jade', ->
   gulp.src './assets/templates/**/*.jade'
     .pipe plumber()
     .pipe jade()
-    .pipe handlebars()
-    .pipe concat 'templates/all.js'
+    .pipe concat 'templates.html'
     .pipe gulp.dest './public'
-
 
 gulp.task 'watch', ->
   gulp.watch './assets/css/**/*.scss', ['sass']
