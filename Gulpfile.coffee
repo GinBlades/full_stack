@@ -6,11 +6,14 @@ sourcemaps = require 'gulp-sourcemaps'
 uglify     = require 'gulp-uglify'
 concat     = require 'gulp-concat'
 jade       = require 'gulp-jade'
+handlebars = require 'gulp-handlebars'
+wrap = require 'gulp-wrap'
+declare = require 'gulp-declare'
 
 vendorJs = [
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-  'bower_components/handlebars/handlebars.min.js'
+  'bower_components/handlebars/handlebars.runtime.min.js'
 ]
 
 gulp.task 'sass', ->
@@ -43,7 +46,13 @@ gulp.task 'jade', ->
   gulp.src './assets/templates/**/*.jade'
     .pipe plumber()
     .pipe jade()
-    .pipe concat 'templates.html'
+    .pipe handlebars
+      handlebars: require("handlebars")
+    .pipe wrap("Handlebars.template(<%= contents %>)")
+    .pipe declare
+      namespace: "FS.templates"
+      noRedeclare: true
+    .pipe concat "js/templates.js"
     .pipe gulp.dest './public'
 
 gulp.task 'watch', ->
