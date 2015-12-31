@@ -5,12 +5,13 @@ cors       = require 'cors'
 mongoose   = require 'mongoose'
 app        = express()
 
+config = require('./config.json')["development"]
 routes = require './routes/index'
 demo = require('./routes/api')('Demo')
 
 app.set 'view engine', 'jade'
 
-mongoose.connect 'mongodb://shaun:cfvR0ChuX5zw2bccqVAO@ds035965.mongolab.com:35965/stmdb', (err) ->
+mongoose.connect config.database, (err) ->
   if err
     console.log 'connection error', err
   else

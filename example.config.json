@@ -1,0 +1,8 @@
+{
+    "development": {
+        "database": "mongodb://localhost/fullStack"
+    },
+    "production": {
+        "database": "mongodb://username:password@host:port/dbname"
+    }
+}
